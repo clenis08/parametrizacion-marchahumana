@@ -1,0 +1,18 @@
+Guide for git hub
+https://rogerdudler.github.io/git-guide/index.es.html
+
+one data set 
+http://www.cbsr.ia.ac.cn/users/szheng/?page_id=71
+two dataset
+http://www.am.sanken.osaka-u.ac.jp/BiometricDB/InertialGait.html
+
+article about Human Gait
+https://pdf.sciencedirectassets.com/282178/1-s2.0-S2212667813X00024/1-s2.0-S2212667813000117/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHgaCXVzLWVhc3QtMSJHMEUCIQCW4w0mrYV2m5QRGDeN4gLznF29rNmtvqETu09v9%2Fu6bQIgeP0DNxuKPrbjSSJi1VMgGX11jKZfTbO%2F7Mv7vZZXhFEqvQMIsf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARADGgwwNTkwMDM1NDY4NjUiDLv3ySaUEwcYFytnvyqRA6nXOLdP7L%2BCR2uK9S7Cm4f02%2FU%2BLAAoXOa2Eb44pk5QeMKhC8Mi6rFXPDBIZl8yFcnnWG2DKVQodwKTxoEi8MfiXRLoyJVhVx4faVyboNWHqzJ89XCO13%2FhwVjxJJOm%2BsLFXCgD0BQSTIfj1dIwsy%2Fewgx%2BCtnxvpEYmlMZMNfCM8%2Fzm5ZTmcS5hyTfe8IKlWqApQdltdbMLak3vA%2BlhwDS8CPzawxYixyeEuI6ojwzCsBYRWeReg57SCXNBiTA2ll2z0nxKxV9A8noIyiu6io9ZKGa1OdjYj6UND4Y%2BEHPp27Dxv0dsSjFjPx%2FaCF%2FLfqxguA%2B3ujZoWc0UcUYtDtQIMjcm64vV8Urt8wEFkau5fOzcjJ2uwI7oasDe5HPAULlz%2Bw4VjPQczs8wvozrN%2FxvSzbSmAatAw4uokHcH05IA5By3fgwTwdggoJUNplrbKMeb%2Bp4BiDAiA%2F1g2%2BwJ7c3qNiSigJh8wPSfMChypyFUWwPGfQPLYHEneicdfm03XdyZCKIx6ttxBIdGjJnXJGMP6XzfUFOusBxJ7d6BRwTqcsozry88Tvwpw%2BpzTMja%2Bl8rHMMAZf%2FZJM2%2Bs1K7TlBBnGJxbZBoxyRaYUS6pNtEQEZkLyzozC%2F3fLypzljMfg6%2BJUeyvsN5Gi6sbYfdERtWcgx4OsjyD0cHx4ySs7l0aAYdkcLs318d7z2Jp%2B0%2B%2FkmsZZpI5LjCAIRID%2FAJD6lavLFRCFFITPxyn%2Fdq9eLOzXT210KIbM%2Bueum84Q0Y9IQY8F3ZtHbxWkEUwztufEu6R6K6EakMhp%2FiV2r7JmSanv2%2F20rTjuUojkXAMIiVZWcC%2BDJ9lh9LIn5NuaQ64QjFH1XQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200507T005227Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYVHXDDYRQ%2F20200507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=fa723e92bd7aa2af4dc31cca87c90b607c97f8e56f65d926da707c74bfaee962&hash=bbf3127e63739e9585e68ca777b59fa699d8d3b441b2baf42ad3588b23a809de&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S2212667813000117&tid=spdf-06197a1c-d82f-4b05-a992-859ed69313e7&sid=2ed91a852008394b1c38dd8-569d2f28996dgxrqa&type=client
+
+https://content.iospress.com/articles/technology-and-health-care/thc181376
+
+
+python with tkinter
+https://python-para-impacientes.blogspot.com/2015/12/tkinter-interfaces-graficas-en-python-i.html
+
+Python with QT
