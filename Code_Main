@@ -1,0 +1,68 @@
+import sys
+import pandas as pd
+import matplotlib
+matplotlib.use('Qt5Agg')
+from PyQt5 import uic, QtCore, QtGui, QtWidgets
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolbar
+from matplotlib.figure import Figure
+import numpy as np
+import random
+
+qtCreatorFile = "GuiDesigner.ui"  # Aquí va el nombre de tu archivo
+
+Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+
+
+class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        Ui_MainWindow.__init__(self)
+        self.setupUi(self)
+
+        # Aquí van los botones
+        self.Import_Button.clicked.connect(self.getCSV)
+        self.Graph_Button.clicked.connect(self.graphics)
+
+    # Aquí van las nuevas funciones
+    # Esta función abre el archivo CSV
+    def graphics(self):
+        fs = 500
+        f = random.randint(1, 100)
+        ts = 1 / fs
+        length_of_signal = 100
+        t = np.linspace(0, 1, length_of_signal)
+
+        cosinus_signal = np.cos(2 * np.pi * f * t)
+        sinus_signal = np.sin(2 * np.pi * f * t)
+
+        self.MplWidget.canvas.axes.clear()
+        self.MplWidget.canvas.axes.plot(t, cosinus_signal)
+        self.MplWidget.canvas.axes.plot(t, sinus_signal)
+        self.MplWidget.canvas.axes.legend(('cosinus', 'sinus'), loc='upper right')
+        self.MplWidget.canvas.axes.set_title('Cosinus - Sinus Signal')
+        self.MplWidget.canvas.draw()
+
+        self.MplWidget_2.canvas.axes.clear()
+        x = self.df['col1']
+        y = self.df['col2']
+        self.MplWidget_2.canvas.axes.plot(x,y)
+        #self.MplWidget_2.canvas.axes.plot(t, sinus_signal)
+        self.MplWidget_2.canvas.axes.legend(('cosinus', 'sinus'), loc='upper right')
+        self.MplWidget_2.canvas.axes.set_title('Cosinus - Sinus Signal')
+        self.MplWidget_2.canvas.draw()
+
+    def getCSV(self):
+        filePath, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '/home/OneDrive-correounivalle.edu.co/')
+        if filePath != "":
+            print("Dirección", filePath)  # Opcional imprimir la dirección del archivo
+            self.df = pd.read_csv(str(filePath))
+            #dfcars = pd.read_csv(filePath + "data/mtcars.csv")
+
+            # Mostrar los encabezados de las primeras cinco filas de los datos
+            #dfcars.head()
+
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    window = MyApp()
+    window.show()
