@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="La">
+    <file>Laying_Green.png</file>
+    <file>Laying_Red.png</file>
+  </qresource>
+</RCC>

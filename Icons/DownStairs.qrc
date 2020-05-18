@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="DS">
+    <file>DownStairs_Green.png</file>
+    <file>DownStairs_Red.png</file>
+  </qresource>
+</RCC>

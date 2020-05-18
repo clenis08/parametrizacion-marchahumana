@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="US">
+    <file>UpStairs_Green.png</file>
+    <file>UpStairs_Red.png</file>
+  </qresource>
+</RCC>

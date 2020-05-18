@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="Wk">
+    <file>Walking_Green.png</file>
+    <file>Walking_Red.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="SD">
+    <file>SitDown_Green.png</file>
+    <file>SitDown_Red.png</file>
+  </qresource>
+</RCC>

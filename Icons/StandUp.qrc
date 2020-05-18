@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="SU">
+    <file>StandUp_Green.png</file>
+    <file>StanUp_Red.png</file>
+  </qresource>
+</RCC>

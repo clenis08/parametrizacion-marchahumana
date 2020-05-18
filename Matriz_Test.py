@@ -9,8 +9,8 @@ y_pred = [0, 0, 2, 1, 0, 2, 1, 0, 2, 0, 2, 2]
 cm=confusion_matrix(y_actu, y_pred)
 print(cm)
 resultado = pd.DataFrame(cm, index= ['Fresh Apple','Fresh Banana','Fresh Orange'],columns = ['Fresh Apple','Fresh Banana','Fresh Orange'])
-fig = plt.figure(figsize= (6,6))
-ax = fig.add_subplot(1,1,1)
+#fig = plt.figure(figsize= (6,6))
+#ax = fig.add_subplot(1,1,1)
 sn.heatmap(resultado, annot=True, linewidths=1, linecolor= 'white', cmap="Reds")
 font= {'family': 'serif',
      'color': 'darkred',
