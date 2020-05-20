@@ -6,25 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1424</width>
-    <height>786</height>
+    <width>1483</width>
+    <height>805</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-background-color: rgb(188, 188, 188);</string>
+   <string notr="true">background-color: rgb(188, 188, 188);
+background-image: url(:/Fd/neural-networks_featured-image.jpg);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>500</y>
+      <y>560</y>
       <width>461</width>
-      <height>121</height>
+      <height>131</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -95,6 +95,8 @@ border-radius: 5px;</string>
       <widget class="QPushButton" name="Graph_Button">
        <property name="styleSheet">
         <string notr="true">border-style: solid;
+border-bottom-color: rgb(167, 167, 167);
+border-color: rgb(179, 179, 179);
 border-width: 1px;
 border-color: rgb(0, 51, 102);
 background-color: rgb(0, 51, 102);
@@ -131,36 +133,23 @@ border-radius: 5px;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QToolButton" name="Guess">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>630</y>
-      <width>391</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Guess</string>
-    </property>
-   </widget>
    <widget class="MplWidget" name="MplWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>550</x>
       <y>70</y>
-      <width>931</width>
-      <height>221</height>
+      <width>861</width>
+      <height>261</height>
      </rect>
     </property>
    </widget>
    <widget class="MplWidget" name="MplWidget_2" native="true">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>300</y>
-      <width>931</width>
-      <height>221</height>
+      <x>550</x>
+      <y>340</y>
+      <width>861</width>
+      <height>251</height>
      </rect>
     </property>
    </widget>
@@ -169,16 +158,16 @@ border-radius: 5px;</string>
      <rect>
       <x>10</x>
       <y>70</y>
-      <width>461</width>
-      <height>421</height>
+      <width>521</width>
+      <height>481</height>
      </rect>
     </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>479</x>
-      <y>529</y>
+      <x>480</x>
+      <y>610</y>
       <width>931</width>
       <height>131</height>
      </rect>
@@ -277,8 +266,11 @@ border-image: url(:/DS/DownStairs_Red.png);</string>
      </item>
      <item>
       <widget class="QLabel" name="Title">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; font-style:italic;&quot;&gt;Human Gait Recognition&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; font-style:italic;&quot;&gt;Human Activities Recognition&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -297,18 +289,66 @@ border-image: url(:/DS/DownStairs_Red.png);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>700</y>
+      <width>186</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Range:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item>
+      <widget class="QToolButton" name="Guess">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Recognition</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <zorder>horizontalLayoutWidget</zorder>
+   <zorder>MplWidget</zorder>
+   <zorder>MplWidget_2</zorder>
+   <zorder>MxConfusion</zorder>
+   <zorder>horizontalLayoutWidget_2</zorder>
+   <zorder>horizontalLayoutWidget_3</zorder>
+   <zorder>horizontalLayoutWidget_4</zorder>
+   <zorder>horizontalLayoutWidget_5</zorder>
+   <zorder>Guess</zorder>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1424</width>
+     <width>1483</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <customwidgets>
   <customwidget>
@@ -320,6 +360,7 @@ border-image: url(:/DS/DownStairs_Red.png);</string>
  </customwidgets>
  <resources>
   <include location="Icons/SitDown.qrc"/>
+  <include location="Icons/Fond.qrc"/>
   <include location="Icons/StandUp.qrc"/>
   <include location="Icons/Laying.qrc"/>
   <include location="Icons/Walking.qrc"/>

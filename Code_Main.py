@@ -16,13 +16,16 @@ import matplotlib.animation as animation
 import serial  # Import Serial Library
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import numpy as np
-import re
-import threading
+import Process_Info
+import proyecto_final_dsp
+import keras
+
+
 matplotlib.use('Qt5Agg')
 
 Y = 0
 X = 0
+
 gDataX = []
 gDataY = []
 gDataX.append([0.0])
@@ -49,9 +52,107 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # Aquí van los botones
         self.Import_Button.clicked.connect(self.getCSV)
         self.Graph_Button.clicked.connect(self.graphics)
-        self.Connect_Button.clicked.connect(self.adquisition)     
-
+        self.Connect_Button.clicked.connect(self.adquisition)    
+        self.Guess.clicked.connect(self.NeuralNetwork) 
+        
     # Aquí van las nuevas funciones
+    def NeuralNetwork(self):
+        #print(lineEdit.text())
+        #print(int(self.lineEdit.text()))
+        Li=int(self.lineEdit.text())
+        actividad=proyecto_final_dsp.Model_Guess(self.dfcars,Li) 
+        
+        if (actividad==0):
+            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StandUp_Green.png);\n"
+                                        "border-image: url(:/SU/StanUp_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
+                                        "border-image: url(:/La/Laying_Green.png);")
+            self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Green.png);\n"
+                                        "border-image: url(:/Wk/Walking_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
+                                        "border-image: url(:/La/Laying_Green.png);")
+            self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Green.png);\n"
+                                        "border-image: url(:/SD/SitDown_Red.png);")
+            self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Green.png);\n"
+                                        "border-image: url(:/US/UpStairs_Red.png);")
+            self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Green.png);\n"
+                                        "border-image: url(:/DS/DownStairs_Red.png);")          
+        if (actividad==1):
+            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StandUp_Green.png);\n"
+                                        "border-image: url(:/SU/StanUp_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
+                                        "border-image: url(:/La/Laying_Green.png);")
+            self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Green.png);\n"
+                                        "border-image: url(:/Wk/Walking_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Green.png);\n"
+                                        "border-image: url(:/La/Laying_Red.png);")
+            self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Red.png);\n"
+                                        "border-image: url(:/SD/SitDown_Green.png);")
+            self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Green.png);\n"
+                                        "border-image: url(:/US/UpStairs_Red.png);")
+            self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Green.png);\n"
+                                        "border-image: url(:/DS/DownStairs_Red.png);")  
+        if (actividad==2):
+            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StanUp_Red.png);\n"
+                                        "border-image: url(:/SU/StandUp_Green.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
+                                        "border-image: url(:/La/Laying_Green.png);")
+            self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Green.png);\n"
+                                        "border-image: url(:/Wk/Walking_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Green.png);\n"
+                                        "border-image: url(:/La/Laying_Red.png);")
+            self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Green.png);\n"
+                                        "border-image: url(:/SD/SitDown_Red.png);")
+            self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Green.png);\n"
+                                        "border-image: url(:/US/UpStairs_Red.png);")
+            self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Green.png);\n"
+                                        "border-image: url(:/DS/DownStairs_Red.png);")                
+        if (actividad==3):
+            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StandUp_Green.png);\n"
+                                        "border-image: url(:/SU/StanUp_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
+                                        "border-image: url(:/La/Laying_Green.png);")
+            self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Red.png);\n"
+                                        "border-image: url(:/Wk/Walking_Green.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Green.png);\n"
+                                        "border-image: url(:/La/Laying_Red.png);")
+            self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Green.png);\n"
+                                        "border-image: url(:/SD/SitDown_Red.png);")
+            self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Green.png);\n"
+                                        "border-image: url(:/US/UpStairs_Red.png);")
+            self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Green.png);\n"
+                                        "border-image: url(:/DS/DownStairs_Red.png);")               
+        if (actividad==4):
+            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StandUp_Green.png);\n"
+                                        "border-image: url(:/SU/StanUp_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
+                                        "border-image: url(:/La/Laying_Green.png);")
+            self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Green.png);\n"
+                                        "border-image: url(:/Wk/Walking_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Green.png);\n"
+                                        "border-image: url(:/La/Laying_Red.png);")
+            self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Green.png);\n"
+                                        "border-image: url(:/SD/SitDown_Red.png);")
+            self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Green.png);\n"
+                                        "border-image: url(:/US/UpStairs_Red.png);")
+            self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Red.png);\n"
+                                        "border-image: url(:/DS/DownStairs_Green.png);")   
+        if (actividad==5):
+            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StandUp_Green.png);\n"
+                                        "border-image: url(:/SU/StanUp_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
+                                        "border-image: url(:/La/Laying_Green.png);")
+            self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Green.png);\n"
+                                        "border-image: url(:/Wk/Walking_Red.png);")
+            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Green.png);\n"
+                                        "border-image: url(:/La/Laying_Red.png);")
+            self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Green.png);\n"
+                                        "border-image: url(:/SD/SitDown_Red.png);")
+            self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Red.png);\n"
+                                        "border-image: url(:/US/UpStairs_Green.png);")
+            self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Green.png);\n"
+                                        "border-image: url(:/DS/DownStairs_Red.png);")            
+            
     def adquisition(self):
     
         self._timer = self.MplWidget.canvas.new_timer(
@@ -65,42 +166,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         dataCollector = threading.Thread(
             target=getData, args=(gDataX, gDataY,))
         dataCollector.start()
-        
-    """
-        global FlagAdquisition
-        if FlagAdquisition == True:
-            FlagAdquisition = False
-            # self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Red.png);\n"
-            #                              "border-image: url(:/Wk/Walking_Green.png);")
-            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StanUp_Red.png);\n"
-                                          "border-image: url(:/SU/StandUp_Green.png);")
-            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Green.png);\n"
-                                          "border-image: url(:/La/Laying_Red.png);")
-            # self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
-            #                            "border-image: url(:/La/Laying_Green.png);")
-            # self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Red.png);\n"
-            #                            "border-image: url(:/SD/SitDown_Green.png);")
-            # self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Red.png);\n"
-            #                            "border-image: url(:/US/UpStairs_Green.png);")
-            # self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Red.png);\n"
-            #                            "border-image: url(:/DS/DownStairs_Green.png);")
-        else:
-            FlagAdquisition = True
-            self.StanUp_Lbl.setStyleSheet("border-image: url(:/SU/StandUp_Green.png);\n"
-                                          "border-image: url(:/SU/StanUp_Red.png);")
-            self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Red.png);\n"
-                                          "border-image: url(:/La/Laying_Green.png);")
-            # self.Walking_Lbl.setStyleSheet("border-image: url(:/Wk/Walking_Green.png);\n"
-            #                         "border-image: url(:/Wk/Walking_Red.png);")
-            # self.Laying_Lbl.setStyleSheet("border-image: url(:/La/Laying_Green.png);\n"
-            #                       "border-image: url(:/La/Laying_Red.png);")
-            # self.SitDown_Lbl.setStyleSheet("border-image: url(:/SD/SitDown_Green.png);\n"
-            #                       "border-image: url(:/SD/SitDown_Red.png);")
-            # self.UpStairs_Lbl.setStyleSheet("border-image: url(:/US/UpStairs_Green.png);\n"
-            #                       "border-image: url(:/US/UpStairs_Red.png);")
-            # self.DownStair_Lbl.setStyleSheet("border-image: url(:/DS/DownStairs_Green.png);\n"
-            #                       "border-image: url(:/DS/DownStairs_Red.png);")
-     """
+
     def _update_canvas(self):
             self.MplWidget.canvas.axes.clear()
             t = np.linspace(0, 10, 101)
@@ -118,40 +184,31 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     # Esta funcón abre el archivo CSV
 
     def graphics(self):
-
-        fs = 500
-        f = random.randint(1, 100)
-        ts = 1 / fs
-        length_of_signal = 100
-        t = np.linspace(0, 1, length_of_signal)
-
-        cosinus_signal = np.cos(2 * np.pi * f * t)
-        sinus_signal = np.sin(2 * np.pi * f * t)
-        """
-        self.MplWidget.canvas.axes.clear()
-        self.MplWidget.canvas.axes.plot(t, cosinus_signal)
-        self.MplWidget.canvas.axes.plot(t, sinus_signal)
-        self.MplWidget.canvas.axes.legend(
-            ('cosinus', 'sinus'), loc='upper right')
-        self.MplWidget.canvas.axes.set_title('Cosinus - Sinus Signal')
-        self.MplWidget.canvas.draw()
-        """
+        probability = [0.3602150537634409, 0.42028985507246375, 
+                        0.373117033603708, 0.36813186813186816, 0.32517482517482516, 
+                        0.4175257731958763, 0.41025641025641024, 0.39408866995073893, 
+                        0.4143222506393862, 0.34, 0.391025641025641, 0.3130841121495327, 
+                        0.35398230088495575]
         self.MplWidget_2.canvas.axes.clear()
-        x = self.df['col1']
-        y = self.df['col2']
-        self.MplWidget_2.canvas.axes.plot(x, y)
+        #x = self.df['col1']
+        #y = self.df['col2']
+        #self.MplWidget_2.canvas.axes.plot(x, y)
+        
         self.MplWidget_2.canvas.axes.legend('Col1', loc='upper right')
         self.MplWidget_2.canvas.axes.set_title('CSV file')
         self.MplWidget_2.canvas.draw()
 
-        cm = confusion_matrix(y_actu, y_pred)
-
-        resultado = pd.DataFrame(cm, index=['Fresh Apple', 'Fresh Banana', 'Fresh Orange'],
-                                 columns=['Fresh Apple', 'Fresh Banana', 'Fresh Orange'])
+        cm = proyecto_final_dsp.GetMatrix()
+        #cm= confusion_matrix(y_actu, y_pred)
+        label=['LAYING','SITING','STANDING', 'WALKING','WALKING_DOWNSTAIRS','WALKING_UPSTAIRS']
+        
+        resultado = pd.DataFrame(cm, index=label, columns=label)
+        # index=['Fresh Apple', 'Fresh Banana', 'Fresh Orange'],
+        #                        columns=['Fresh Apple', 'Fresh Banana', 'Fresh Orange'])
 
         self.MxConfusion.canvas.axes.clear()
         sn.heatmap(resultado, annot=True, linewidths=1, linecolor='white',
-                   ax=self.MxConfusion.canvas.axes, cmap="Reds")
+                   ax=self.MxConfusion.canvas.axes, cmap="GnBu")
         # font = {'family': 'serif',
         #       'color': 'darkred',
         #      'weight': 'normal',
@@ -160,7 +217,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.MxConfusion.canvas.axes.set_ylabel("Preditec Label")
         self.MxConfusion.canvas.axes.set_xlabel("True Label")
         self.MxConfusion.canvas.draw()
-        print(cm)
+        #print(cm)s
 
     def getCSV(self):
         filePath, _ = QtWidgets.QFileDialog.getOpenFileName(
@@ -168,11 +225,12 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if filePath != "":
             # Opcional imprimir la dirección del archivo
             print("Dirección", filePath)
-            self.df = pd.read_csv(str(filePath))
-            dfcars = pd.read_csv(str(filePath))
+            #self.df = pd.read_csv(str(filePath))
+            self.dfcars = pd.read_csv(str(filePath))
+            Process_Info.Describe_Info(self.dfcars)
             # Mostrar los encabezados de las primeras cinco filas de los datos
-            print(dfcars.head())
-            print(dfcars.shape)  # 12 columnas, cada una de longitud 32
+            #print(dfcars.head())
+            #print(dfcars.shape)  # 12 columnas, cada una de longitud 32
 
 
 def getData(out_dataX, out_dataY):
@@ -191,8 +249,8 @@ def getData(out_dataX, out_dataY):
                     out_dataX[1].pop(0)
                 if len(out_dataY[1]) > 200:
                     out_dataY[1].pop(0)
-                print(out_dataX[1])
-                print(out_dataY[1])
+                #print(out_dataX[1])
+                #print(out_dataY[1])
             except:
                 pass
 
